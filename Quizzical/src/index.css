@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right, #ff9a9e, #a1caff91, #ffaaad, #8bbdffb7);
+  background-size: 400% 400%;
+  animation: gradient 25s ease infinite;
+  height: auto;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

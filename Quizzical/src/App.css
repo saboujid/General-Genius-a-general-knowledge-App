@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+
+.App {
+  font-family: "Montserrat";
+  width: 100%;
+  position: relative;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.Container {
+  width: 550px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.562);
+  border-radius: 12px;
+  box-shadow: 10px 10px 15px #00000026;
+  padding: 40px 80px 40px 70px;
+}
+
+.Home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.Home h1{
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.Home p{
+  font-size: 20px;
+  text-align: left;
+
+}
+
+.Home button{
+  position: relative;
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 400;
+  top: 40px;
+  color: rgb(255, 255, 255);
+  background-color: #4D5B9E;
+  border: none;
+  border-radius: 12px;
+  font-family: "poppins";
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: 0.4s;
+}
+
+.Home button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 5px 10px #4D5B9E;
+}
+
+.credits{
+  position: relative;
+  top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.credits a{
+  text-decoration: none;
+  color: #4D5B9E;
+  font-weight: 700;
+  font-family: 'poppins';
+  margin-left: 3px;
+}
+.credits:hover{
+  transform: scale(1.1);
+}
+
+.question {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.normal {
+  font-family: 'poppins';
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  border: 1px rgba(0, 0, 0, 0.521) solid;
+  border-radius: 12px;
+  padding: 8px 30px;
+  margin-left: 120px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: transparent;
+
+}
+
+.normal:hover {
+  background: linear-gradient(to right, #ff9a9e, #a1caff91, #ffaaad, #8bbdffb7);
+  background-size: 400% 400%;
+  animation: gradient 25s ease infinite;
+  color: white;
+  transition: 0.3s;
+  border: none;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check button {
+  font-family: 'poppins';
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  border-radius: 12px;
+  margin-top: 30px;
+  background-color: #4D5B9E;
+  padding: 10px 30px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 5px 10px #4D5B9E;
+
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.check button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px #4D5B9E;
+}
+
+
+.clicked {
+  font-family: 'poppins';
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 30px;
+  margin-left: 120px;
+  margin-top: 20px;
+  cursor: pointer;
+  background: linear-gradient(to right, #ff9a9e, #a1caff91, #ffaaad, #8bbdffb7);
+  background-size: 400% 400%;
+  animation: gradient 25s ease infinite;
+}
+
+.score {
+  font-family: 'poppins';
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  position: relative;
+  top: 20px;
+  margin-right: 10px;
+}
