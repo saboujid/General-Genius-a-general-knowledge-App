@@ -1,4 +1,4 @@
-#General Genius
+# General Genius
 
 ## General Genius, is a general knowledge web app, that is here to help you improve your knowledge on a variety of topics, test and reinforce what you know now!
 
