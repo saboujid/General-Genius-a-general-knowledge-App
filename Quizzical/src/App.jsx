@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { nanoid } from "nanoid"
 
 function App() {
+  // State variables for starting the quiz, all questions, current question, score and checking the answers
   const [start, setStart] = React.useState(true)
   const [allQuiz, setAllQuiz] = React.useState([{}])
   const [quiz, setQuiz] = React.useState([{}])
@@ -14,7 +15,7 @@ function App() {
   let tru, fals;
 
 
-
+  // State variables for starting the quiz, all questions, current question, score and checking the answers
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&type=boolean")
       .then(res => res.json())
@@ -22,6 +23,7 @@ function App() {
 
   }, [])
 
+  // useEffect hook that maps the data received from the API and sets the state of the quiz variable
   useEffect(() => {
     let elem = allQuiz.map(mcq => {
       return (
@@ -38,6 +40,7 @@ function App() {
     setQuiz(elem)
   }, [allQuiz])
 
+  //handles the click event when the user selects an answer
   function handleClick(answer, key, option, state, isChanged) {
     if (option == 1) {
       setQuiz(quiz => quiz.map(element => {
@@ -76,6 +79,7 @@ function App() {
 
   }
 
+  // maps the quiz data and renders it to the UI
   const render = quiz.map(quiz => {
     tru = quiz.true ? "clicked" : "normal"
     fals = quiz.false ? "clicked" : "normal"
@@ -91,10 +95,12 @@ function App() {
     )
   })
 
+  // function to handle the event of checking answers
   function handleCheckAnswers() {
     setIsCheckingAnswers(true);
   }
 
+  // function to handle the event of playing again
   function handlePlayAgain() {
     window.location.reload();
   }
@@ -105,8 +111,11 @@ function App() {
         {start ? <Home setStart={setStart} /> :
           <>
             {render}
+            {/* Showing the score and the Check or Play Again button */}
             <div className="check">
+              {/* Handling scoring*/}
               {isCheckingAnswers ? <p className='score'>you scored {score}/5 correct answers</p> : ""}
+              {/* Handles the check answer or play again button, and when to display each one */}
               <button onClick={isCheckingAnswers ? handlePlayAgain : handleCheckAnswers}>{isCheckingAnswers ? 'Play Again' : 'Check Answers'}</button>
             </div>
           </>
