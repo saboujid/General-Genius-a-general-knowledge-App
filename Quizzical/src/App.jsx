@@ -4,9 +4,11 @@ import Home from './components/Home'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { nanoid } from "nanoid"
+import he from 'he';
+import gen from './assets/gen2.png'
+
 
 function App() {
-  // State variables for starting the quiz, all questions, current question, score and checking the answers
   const [start, setStart] = React.useState(true)
   const [allQuiz, setAllQuiz] = React.useState([{}])
   const [quiz, setQuiz] = React.useState([{}])
@@ -15,15 +17,20 @@ function App() {
   let tru, fals;
 
 
-  // State variables for starting the quiz, all questions, current question, score and checking the answers
+
   React.useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=5&type=boolean")
-      .then(res => res.json())
-      .then(data => setAllQuiz(data.results))
+    fetch('https://opentdb.com/api.php?amount=5&type=boolean')
+      .then(response => response.json())
+      .then(data => {
+        const decodedData = data.results.map(result => ({
+          ...result,
+          question: he.decode(result.question),
+        }));
+        setAllQuiz(decodedData);
+      })
+      .catch(error => console.error(error));
+  }, []);
 
-  }, [])
-
-  // useEffect hook that maps the data received from the API and sets the state of the quiz variable
   useEffect(() => {
     let elem = allQuiz.map(mcq => {
       return (
@@ -40,7 +47,6 @@ function App() {
     setQuiz(elem)
   }, [allQuiz])
 
-  //handles the click event when the user selects an answer
   function handleClick(answer, key, option, state, isChanged) {
     if (option == 1) {
       setQuiz(quiz => quiz.map(element => {
@@ -79,7 +85,6 @@ function App() {
 
   }
 
-  // maps the quiz data and renders it to the UI
   const render = quiz.map(quiz => {
     tru = quiz.true ? "clicked" : "normal"
     fals = quiz.false ? "clicked" : "normal"
@@ -95,12 +100,10 @@ function App() {
     )
   })
 
-  // function to handle the event of checking answers
   function handleCheckAnswers() {
     setIsCheckingAnswers(true);
   }
 
-  // function to handle the event of playing again
   function handlePlayAgain() {
     window.location.reload();
   }
@@ -110,17 +113,17 @@ function App() {
       <div className='Container'>
         {start ? <Home setStart={setStart} /> :
           <>
+            <div id="fav">
+              <img src={gen} />
+            </div>
             {render}
-            {/* Showing the score and the Check or Play Again button */}
             <div className="check">
-              {/* Handling scoring*/}
               {isCheckingAnswers ? <p className='score'>you scored {score}/5 correct answers</p> : ""}
-              {/* Handles the check answer or play again button, and when to display each one */}
               <button onClick={isCheckingAnswers ? handlePlayAgain : handleCheckAnswers}>{isCheckingAnswers ? 'Play Again' : 'Check Answers'}</button>
             </div>
           </>
         }
-        <span className="credits">Made by <a href="https://github.com/saboujid">Saboujid</a></span>
+        <span className="credits">Made by <a href="https://github.com/saboujid" target="_blank">Saboujid</a></span>
 
       </div>
     </div>

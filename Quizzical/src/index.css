@@ -1,11 +1,9 @@
 body {
   margin: 0;
-  background: linear-gradient(to right, #ff9a9e, #a1caff91, #ffaaad, #8bbdffb7);
-  background-size: 400% 400%;
-  animation: gradient 25s ease infinite;
-  height: auto;
-  min-height: 100vh;
+  background-image: conic-gradient(#ffead5, #AD2480, #ffe3a786);
   font-family: 'Poppins', sans-serif;
+  background-attachment: fixed;
+  backdrop-filter: blur(40px);
 }
 
 @keyframes gradient {
@@ -19,5 +17,17 @@ body {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  body {
+    margin: 0;
+    background-image: conic-gradient(#ffead5, #AD2480, #ffe3a786);
+    font-family: 'Poppins', sans-serif;
+    background-attachment: fixed;
+    backdrop-filter: blur(50px);
+    height: 100vh;
   }
 }
