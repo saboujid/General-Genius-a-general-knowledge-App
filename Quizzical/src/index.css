@@ -3,7 +3,7 @@ body {
   background-image: conic-gradient(#ffead5, #AD2480, #ffe3a786);
   font-family: 'Poppins', sans-serif;
   background-attachment: fixed;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(100px);
 }
 
 @keyframes gradient {
@@ -27,7 +27,8 @@ body {
     background-image: conic-gradient(#ffead5, #AD2480, #ffe3a786);
     font-family: 'Poppins', sans-serif;
     background-attachment: fixed;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(100px);
     height: 100vh;
+    -webkit-backdrop-filter: blur(100px)
   }
 }
