@@ -29,6 +29,6 @@ body {
     background-attachment: fixed;
     backdrop-filter: blur(100px);
     height: 100vh;
-    -webkit-backdrop-filter: blur(100px)
+    -webkit-backdrop-filter: blur(100px);
   }
 }
